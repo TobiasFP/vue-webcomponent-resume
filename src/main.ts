@@ -1,8 +1,15 @@
 import Vue from "vue";
-import wrap from "@vue/web-component-wrapper";
-
 import App from "./App.vue";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faMobile, faPersonBooth, faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const wrappedElement = wrap(Vue, App);
+library.add(faMobile, faPersonBooth, faEnvelopeOpen)
 
-window.customElements.define("v-card", wrappedElement as any);
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.config.productionTip = false;
+
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");
