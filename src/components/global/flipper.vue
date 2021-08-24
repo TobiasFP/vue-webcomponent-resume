@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component,  Vue } from "vue-property-decorator";
 
 @Component
 export default class flipper extends Vue {}
@@ -38,7 +38,7 @@ export default class flipper extends Vue {}
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+.flip-card:hover  .flip-card-inner, .flip-card:active .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -58,8 +58,8 @@ export default class flipper extends Vue {}
 
 /* Style the back side */
 .flip-card-back {
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: white;
   transform: rotateY(180deg);
 } 
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <p1>
-      About me1
+      About me
     </p1>
     <p>
       I am primarily a backend developer, interested in GoLang, MongoDB,

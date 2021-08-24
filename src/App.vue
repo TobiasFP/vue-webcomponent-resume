@@ -15,9 +15,6 @@
     <div class="workedu">
       <work-edu> </work-edu>
     </div>
-    <div class="skills">
-      <!-- <skills> </skills> -->
-    </div>
   </div>
 </template>
 
@@ -26,7 +23,6 @@ import { Component, Vue } from "vue-property-decorator";
 import profilepic from "./components/profilepic.vue";
 import contact from "./components/contact.vue";
 import flipper from "./components/global/flipper.vue";
-import skills from "./components/skills.vue";
 import about from "./components/about.vue";
 import WorkEdu from "./components/workEdu.vue";
 import action from "./components/global/action.vue";
@@ -36,7 +32,6 @@ import action from "./components/global/action.vue";
     profilepic,
     contact,
     flipper,
-    skills,
     about,
     WorkEdu,
     action,
@@ -60,6 +55,9 @@ export default class App extends Vue {}
 }
 
 @media only screen and (max-width: 720px) {
+  #app {
+    grid-template-rows: 1fr 1fr;
+  }
   .profile-pic {
     grid-row: 1;
     grid-column: 4/8;

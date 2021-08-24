@@ -1,5 +1,5 @@
 <template>
-  <div class="action" ref="action">
+  <div class="action">
     <img class="action-img" src="@/assets/action.png" />
   </div>
 </template>
@@ -10,15 +10,7 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({
   components: {},
 })
-export default class action extends Vue {
-  mounted() {
-    console.log(this.$refs["action"]);
-    //   this.$refs["input"].focus()
-    //   const images = document.querySelector('.images');
-
-    // images.addEventListener('mouseover', changeDefOver);
-  }
-}
+export default class action extends Vue {}
 </script>
 
 <style scoped>
@@ -37,6 +29,15 @@ export default class action extends Vue {
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-play-state: running;
+}
+
+.action-img:hover,
+.action-img:active {
+  display: none;
+}
+.action:hover .action-img,
+.action:active .action-img {
+  display: none;
 }
 
 @keyframes stretch {

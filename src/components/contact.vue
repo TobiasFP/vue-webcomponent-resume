@@ -1,25 +1,35 @@
 <template>
   <div class="contact">
-    <ul class="contactinfo">
-      <li>
-        <font-awesome-icon icon="person-booth" />Tobias Feldballe Petersen
-      </li>
-      <li><font-awesome-icon icon="mobile" /> +45 51968275</li>
-      <li><font-awesome-icon icon="envelope-open" /> tobias@osandweb.dk</li>
-      <li><font-awesome-icon icon="mobile" /> TobiasFeldballe</li>
-    </ul>
+    <div class="contact-segment">
+      <font-awesome-icon icon="address-card" />
+      Tobias Feldballe
+    </div>
+    <div class="contact-segment">
+      <font-awesome-icon icon="mobile-alt" />
+      +45 51968275
+    </div>
+    <div class="contact-segment">
+      <font-awesome-icon icon="at" />
+      tobias@osandweb.dk
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class contact extends Vue {}
 </script>
 
 <style scoped>
-.contactinfo {
-  list-style-type: none;
+.contact {
+  width: 100%;
+  margin: 10%;
+  height: 100%;
+}
+
+.contact-segment {
+  margin-top: 15px;
 }
 </style>
