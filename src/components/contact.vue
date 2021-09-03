@@ -1,15 +1,12 @@
 <template>
   <div class="contact">
     <div class="contact-segment">
-      <font-awesome-icon icon="address-card" />
       Tobias Feldballe
     </div>
     <div class="contact-segment">
-      <font-awesome-icon icon="mobile-alt" />
       +45 51968275
     </div>
     <div class="contact-segment">
-      <font-awesome-icon icon="at" />
       tobias@osandweb.dk
     </div>
   </div>

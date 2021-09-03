@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p1>
+    <h2>
       About me
-    </p1>
+    </h2>
     <p>
       I am primarily a backend developer, interested in GoLang, MongoDB,
       ElasticSearch, MySQL and information security. My proudest moment was

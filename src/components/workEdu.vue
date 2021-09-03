@@ -9,7 +9,10 @@
             Jumpstory, Software developer
             <div class="additional-info">
               <ul>
-                <li>PHP7</li>
+                <li>Python3</li>
+                <li>MySql</li>
+                <li>AWS Lambda</li>
+                <li>Laravel/PHP8</li>
                 <li>Vue (Typescript, Javascript)</li>
                 <li>Machine learning</li>
                 <li>ElasticSearch</li>
@@ -37,23 +40,24 @@
             <div class="additional-info">
               <ul>
                 <li>Security</li>
-                <li>PHP Development</li>
+                <li>CodeIgniter/PHP7</li>
+                <li>Angular (Typescript, Javascript)</li>
                 <li>MongoDB optimization</li>
                 <li>OAuth2/OpenID Connect</li>
               </ul>
             </div>
           </td>
         </tr>
-        <flipper-row class="second-row"> </flipper-row>
         <tr>
           <td class="left-col">2018-Now</td>
           <td class="right-col">
             Kluboplevelser,CTO, Developer
             <div class="additional-info">
               <ul>
-                <li>Python (Odoo plugin)</li>
+                <li>Python</li>
                 <li>Django</li>
                 <li>MySQL</li>
+                <li>Javascript</li>
               </ul>
             </div>
           </td>
@@ -65,12 +69,10 @@
             <div class="additional-info">
               <ul>
                 <li>Project lead</li>
+                <li>Python</li>
                 <li>Golang</li>
                 <li>Elastic Search</li>
-                <li>PHP</li>
-                <li>Python</li>
                 <li>C++</li>
-                <li>Bash</li>
               </ul>
             </div>
           </td>
@@ -106,7 +108,7 @@ export default class WorkEdu extends Vue {}
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
-  min-width: 80vw;
+  min-width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   font-weight: bold;
 }
@@ -147,7 +149,8 @@ td .right-col {
 .additional-info {
   display: none;
 }
-td:hover .additional-info, td:active .additional-info {
+td:hover .additional-info,
+td:active .additional-info {
   overflow: hidden;
   display: inline;
   word-wrap: break-word;

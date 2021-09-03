@@ -54,9 +54,25 @@ export default class App extends Vue {}
   grid-template-columns: repeat(12, 1fr);
 }
 
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.profile {
+  height: 200px;
+  width: 200px;
+}
+.hover-action {
+  position: absolute;
+  z-index: 10;
+  width: 30px;
+}
 @media only screen and (max-width: 720px) {
   #app {
     grid-template-rows: 1fr 1fr;
+    margin: 10px;
   }
   .profile-pic {
     grid-row: 1;
@@ -75,7 +91,6 @@ export default class App extends Vue {}
     grid-row: 4;
   }
 }
-
 @media only screen and (min-width: 721px) {
   #app {
     gap: 30px;
@@ -89,8 +104,6 @@ export default class App extends Vue {}
     grid-column: 10/12;
   }
   .workedu {
-    width: 100%;
-    height: 10px;
     grid-column: 2/10;
     grid-row: 2;
   }
@@ -100,21 +113,5 @@ export default class App extends Vue {}
     grid-column: 2/10;
     grid-row: 3;
   }
-}
-
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
-
-.profile {
-  height: 200px;
-  width: 200px;
-}
-.hover-action {
-  position: absolute;
-  z-index: 10;
-  width: 30px;
 }
 </style>
