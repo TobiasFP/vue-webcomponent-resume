@@ -1,137 +1,174 @@
 <template>
-  <canvas id="skills" />
+  <div>
+    <h2>Skills</h2>
+    <div class="bigScreenSkills">
+      <p>
+        I have designed this chart from scratch with two.js. As you can quite
+        clearly see, I have rated my design skills to be a rock solid 1 on the
+        chart.!
+      </p>
+      <button @click="resize()">
+        <div ref="skills" id="skills"></div>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import Two from "twojs-ts";
 
-interface axis_starting_point {
-  number: number;
-  suffix: string;
+interface skill {
+  name: string;
+  experience: number;
 }
 
 @Component
 export default class skills extends Vue {
   @Prop() private msg!: string;
-  grid_size = 30;
-  x_axis_distance_grid_lines = 1;
-  y_axis_distance_grid_lines = 1;
-  x_axis_starting_point: axis_starting_point = { number: 1, suffix: "\u03a0" };
-  y_axis_starting_point: axis_starting_point = { number: 1, suffix: "" };
-  num_lines_x = 0;
-  num_lines_y = 0;
-  mounted() {
-    this.initCanvas();
-  }
-  initCanvas() {
-    const canvas: HTMLCanvasElement = document.getElementById(
-      "skills"
-    ) as HTMLCanvasElement;
-    this.num_lines_x = Math.floor(canvas.height / this.grid_size);
-    this.num_lines_y = Math.floor(canvas.width / this.grid_size);
+  skillWidth = 900;
+  skillHeight = 600;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  two: Two;
 
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      this.drawXY(canvas, ctx);
-      this.drawTickMarks(ctx);
-          ctx.translate(this.y_axis_distance_grid_lines*this.grid_size, this.x_axis_distance_grid_lines*this.grid_size);1
+  FiverSkills: Array<skill> = [
+    { name: "Typescript", experience: 5 },
+    { name: "Communication", experience: 5 },
+    { name: "TDD", experience: 5 },
+  ];
+  FourSkills: Array<skill> = [
+    { name: "Python", experience: 4 },
+    { name: "GoLang", experience: 4 },
+    { name: "Angular", experience: 4 },
+    { name: "Ionic", experience: 4 },
+    { name: "HTML5", experience: 4 },
+    { name: "Docker", experience: 4 },
+  ];
+  ThreeSkills: Array<skill> = [
+    { name: "PHP8", experience: 3 },
+    { name: "Mysql", experience: 3 },
+    { name: "AWS Lambda", experience: 3 },
+    { name: "AWS S3", experience: 3 },
+    { name: "Elastic Search", experience: 3 },
+    { name: "CSS3", experience: 3 },
+    { name: "Flask", experience: 3 },
+  ];
+  TwoSkills: Array<skill> = [
+    { name: "Django", experience: 2 },
+    { name: "C#", experience: 2 },
+    { name: "Kubernetes", experience: 2 },
+    { name: "AWS Cloudfront", experience: 2 },
+  ];
+  OneSkills: Array<skill> = [
+    { name: "Design", experience: 1 },
+    { name: ".NET Core", experience: 1 },
+  ];
+
+  mounted(): void {
+    if (window.innerWidth < 900) {
+      this.skillWidth = window.innerWidth * 0.9;
     }
-  }
-
-  drawXY(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
-    for (let i = 0; i <= this.num_lines_x; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = 1;
-
-      // If line represents X-axis draw in different color
-      if (i == this.x_axis_distance_grid_lines) ctx.strokeStyle = "#000000";
-      else ctx.strokeStyle = "#e9e9e9";
-
-      if (i == this.num_lines_x) {
-        ctx.moveTo(0, this.grid_size * i);
-        ctx.lineTo(canvas.width, this.grid_size * i);
-      } else {
-        ctx.moveTo(0, this.grid_size * i + 0.5);
-        ctx.lineTo(canvas.width, this.grid_size * i + 0.5);
-      }
-      ctx.stroke();
-    }
-
-    for (let i = 0; i <= this.num_lines_y; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = 1;
-
-      // If line represents Y-axis draw in different color
-      if (i == this.y_axis_distance_grid_lines) {
-        ctx.strokeStyle = "#000000";
-      } else {
-        ctx.strokeStyle = "#e9e9e9";
-      }
-
-      if (i == this.num_lines_y) {
-        ctx.moveTo(this.grid_size * i, 0);
-        ctx.lineTo(this.grid_size * i, canvas.height);
-      } else {
-        ctx.moveTo(this.grid_size * i + 0.5, 0);
-        ctx.lineTo(this.grid_size * i + 0.5, canvas.height);
-      }
-      ctx.stroke();
-    }
+    const elem: HTMLDivElement = this.$refs.skills as HTMLDivElement;
+    this.two = new Two({
+      width: this.skillWidth,
+      height: this.skillHeight,
+    }).appendTo(elem);
+    this.createCoordinateSystem();
+    this.createSkills();
+    this.two.update();
   }
 
-  drawTickMarks(ctx: CanvasRenderingContext2D) {
-    // Ticks marks along the positive X-axis
-    for (
-      let i = 1;
-      i < this.num_lines_y - this.y_axis_distance_grid_lines;
-      i++
-    ) {
-      ctx.beginPath();
-      ctx.lineWidth = 0.3;
-      ctx.strokeStyle = "#000000";
+  createCoordinateSystem(): void {
+    const background = this.two.makeRectangle(
+      900 / 2,
+      this.skillHeight / 2,
+      900,
+      this.skillHeight
+    );
+    background.linewidth = 0;
+    background.fill = "#f3f3f3";
 
-      // Draw a tick mark 6px long (-3 to 3)
-      ctx.moveTo(this.grid_size * i + 0.5, -3);
-      ctx.lineTo(this.grid_size * i + 0.5, 3);
-      ctx.stroke();
+    const yAxis = this.two.makeLine(50, 0, 50, this.skillHeight);
+    yAxis.linewidth = 2;
 
-      // Text value at that point
-      ctx.textAlign = "start";
-      ctx.fillText(
-        this.x_axis_starting_point.number * i +
-          this.x_axis_starting_point.suffix,
-        this.grid_size * i - 2,
-        15
+    for (let i = 1; i < 6; i++) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const text = this.two.makeText(
+        i.toString(),
+        25,
+        this.skillHeight - i * 100,
+        null
       );
+      text.size = 20;
     }
+  }
 
-    // Ticks marks along the negative X-axis
-    for (let i = 1; i < this.y_axis_distance_grid_lines; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = 0.3;
-      ctx.strokeStyle = "#000000";
+  createSkills(): void {
+    const allSkills: Array<Array<skill>> = [
+      this.FiverSkills,
+      this.FourSkills,
+      this.ThreeSkills,
+      this.TwoSkills,
+      this.OneSkills,
+    ];
+    allSkills.forEach((skills, upperIndex) => {
+      setTimeout(() => {
+        skills.forEach((skill, index) => {
+          setTimeout(() => {
+            this.createSkill(
+              100 * (index + 1),
+              this.skillHeight - skill.experience * 100,
+              skill.name
+            );
+          }, 600 * index);
+        });
+      }, 900 * upperIndex);
+    });
+  }
 
-      // Draw a tick mark 6px long (-3 to 3)
-      ctx.moveTo(-this.grid_size * i + 0.5, -3);
-      ctx.lineTo(-this.grid_size * i + 0.5, 3);
-      ctx.stroke();
+  createSkill(x: number, y: number, skillName: string): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const text = this.two.makeText(skillName, 0, 0, null);
+    text.size = 20;
+    text.rotation = 0.25 * Math.PI;
+    const circle = this.two.makeCircle(0, 0, 45);
+    circle.fill = "#3880ff";
+    circle.opacity = 0.2;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const group = this.two.makeGroup(circle, text);
+    group.translation.set(x, y);
 
-      // Text value at that point
-      ctx.textAlign = "end";
-      ctx.fillText(
-        -this.x_axis_starting_point.number * i +
-          this.x_axis_starting_point.suffix,
-        -this.grid_size * i + 3,
-        15
-      );
+    group.scale = 0;
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.two
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+      .bind("update", (frameCount) => {
+        group.scale += (1 - group.scale) * 0.03;
+      })
+      .play();
+  }
+
+  resize() {
+    if (window.innerWidth < 900) {
+      this.two.width = 900;
     }
+    document.documentElement.requestFullscreen();
+    screen.orientation.lock("landscape");
   }
 }
 </script>
 
-<style scoped>
-#skills {
-  height: 40vh;
-  width: 100%;
+<style>
+@media only screen and (max-width: 720px) {
+  .bigScreenSkills {
+    display: none;
+  }
 }
 </style>

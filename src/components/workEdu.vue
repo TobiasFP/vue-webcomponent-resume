@@ -9,13 +9,27 @@
             Jumpstory, Software developer
             <div class="additional-info">
               <ul>
-                <li>Python3</li>
+                <li>Python</li>
                 <li>MySql</li>
-                <li>AWS Lambda</li>
                 <li>Laravel/PHP8</li>
                 <li>Vue (Typescript, Javascript)</li>
                 <li>Machine learning</li>
                 <li>ElasticSearch</li>
+                <li>Aws (Cloudfront, Lambda, S3, EC2)</li>
+                <li>Docker</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="left-col">2020</td>
+          <td class="right-col">
+            Laban, Software developer
+            <div class="additional-info">
+              <ul>
+                <li>Python</li>
+                <li>Javascript</li>
+                <li>Data mining</li>
               </ul>
             </div>
           </td>
@@ -40,10 +54,12 @@
             <div class="additional-info">
               <ul>
                 <li>Security</li>
+                <li>DevOps</li>
                 <li>CodeIgniter/PHP7</li>
                 <li>Angular (Typescript, Javascript)</li>
                 <li>MongoDB optimization</li>
                 <li>OAuth2/OpenID Connect</li>
+                <li>Docker/Kubernetes</li>
               </ul>
             </div>
           </td>
@@ -58,6 +74,7 @@
                 <li>Django</li>
                 <li>MySQL</li>
                 <li>Javascript</li>
+                <li>Docker/Kubernetes</li>
               </ul>
             </div>
           </td>
@@ -71,6 +88,8 @@
                 <li>Project lead</li>
                 <li>Python</li>
                 <li>Golang</li>
+                <li>Docker/Kubernetes</li>
+                <li>DevOps</li>
                 <li>Elastic Search</li>
                 <li>C++</li>
               </ul>
@@ -116,6 +135,7 @@ export default class WorkEdu extends Vue {}
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
+  filter: drop-shadow(15px 10px 4px #c2c2c2);
 }
 
 .styled-table tbody tr {

@@ -2,7 +2,6 @@
   <div id="app">
     <about class="about"> </about>
     <div class="profile-pic">
-      <action class="hover-action"> </action>
       <flipper class="profile">
         <template v-slot:front>
           <profilepic />
@@ -15,6 +14,9 @@
     <div class="workedu">
       <work-edu> </work-edu>
     </div>
+    <div class="skills">
+      <skills> </skills>
+    </div>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ import contact from "./components/contact.vue";
 import flipper from "./components/global/flipper.vue";
 import about from "./components/about.vue";
 import WorkEdu from "./components/workEdu.vue";
-import action from "./components/global/action.vue";
+import skills from "./components/skills.vue";
 
 @Component({
   components: {
@@ -34,7 +36,7 @@ import action from "./components/global/action.vue";
     flipper,
     about,
     WorkEdu,
-    action,
+    skills,
   },
 })
 export default class App extends Vue {}
@@ -42,33 +44,10 @@ export default class App extends Vue {}
 
 <style scoped>
 #app {
-  font-family: "Ubuntu mono", "Droid sans", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-#app {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
-
-.profile {
-  height: 200px;
-  width: 200px;
-}
-.hover-action {
-  position: absolute;
-  z-index: 10;
-  width: 30px;
-}
 @media only screen and (max-width: 720px) {
   #app {
     grid-template-rows: 1fr 1fr;
@@ -76,21 +55,34 @@ export default class App extends Vue {}
   }
   .profile-pic {
     grid-row: 1;
-    grid-column: 4/8;
+    grid-column: 5/9;
   }
   .about {
     grid-column: 1/12;
     grid-row: 2;
   }
-  .skils {
+  .workedu {
     grid-column: 1/12;
     grid-row: 3;
   }
-  .workedu {
+  .skills {
     grid-column: 1/12;
     grid-row: 4;
   }
 }
+@media only screen and (max-width: 500px) {
+  .profile-pic {
+    grid-row: 1;
+    grid-column: 4/10;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .profile-pic {
+    grid-row: 1;
+    grid-column: 2/12;
+  }
+}
+
 @media only screen and (min-width: 721px) {
   #app {
     gap: 30px;
@@ -102,16 +94,25 @@ export default class App extends Vue {}
 
   .profile-pic {
     grid-column: 10/12;
+    width: 100px;
+    height: 100px;
+    position: relative;
   }
+
+  .profile {
+    height: 200px;
+    width: 200px;
+  }
+
   .workedu {
     grid-column: 2/10;
     grid-row: 2;
   }
   .skills {
     width: 100%;
-    height: 10px;
     grid-column: 2/10;
     grid-row: 3;
+    margin-bottom: 30px;
   }
 }
 </style>

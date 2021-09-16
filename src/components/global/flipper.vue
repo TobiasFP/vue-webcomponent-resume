@@ -1,26 +1,25 @@
 <template>
- <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <slot name="front"> </slot>
-    </div>
-    <div class="flip-card-back">
-      <slot name="back"> </slot>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <slot name="front"> </slot>
+      </div>
+      <div class="flip-card-back">
+        <slot name="back"> </slot>
+      </div>
     </div>
   </div>
-</div> 
 </template>
 
 <script lang="ts">
-import { Component,  Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class flipper extends Vue {}
 </script>
 
 <style scoped>
-
- /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
   background-color: transparent;
   border: 1px solid #f1f1f1;
@@ -38,12 +37,14 @@ export default class flipper extends Vue {}
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover  .flip-card-inner, .flip-card:active .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card:active .flip-card-inner {
   transform: rotateY(180deg);
 }
 
 /* Position the front and back side */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -61,6 +62,5 @@ export default class flipper extends Vue {}
   color: black;
   background-color: white;
   transform: rotateY(180deg);
-} 
-
+}
 </style>
