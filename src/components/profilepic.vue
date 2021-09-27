@@ -16,5 +16,4 @@ export default class profilepic extends Vue {
   width: 100%;
   filter: drop-shadow(15px 10px 4px #c2c2c2);
 }
-
 </style>

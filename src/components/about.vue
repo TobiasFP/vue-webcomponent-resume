@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h2>
-      About me
-    </h2>
+    <h2>About me</h2>
     <p>
       I am primarily a backend developer, interested in GoLang, MongoDB,
       ElasticSearch, MySQL and information security. My proudest moment was
@@ -18,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class about extends Vue {}

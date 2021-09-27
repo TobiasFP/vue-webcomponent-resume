@@ -4,7 +4,7 @@
     <div class="bigScreenSkills">
       <p>
         I have designed this chart from scratch with two.js. As you can quite
-        clearly see, I have rated my design skills to be a rock solid 1 on the
+        clearly see, I have rated my design skills to be a rock solid "Decent" on the
         chart.!
       </p>
       <button @click="resize()">
@@ -89,15 +89,22 @@ export default class skills extends Vue {
     background.linewidth = 0;
     background.fill = "#f3f3f3";
 
-    const yAxis = this.two.makeLine(50, 0, 50, this.skillHeight);
+    const yAxis = this.two.makeLine(100, 0, 100, this.skillHeight);
     yAxis.linewidth = 2;
-
+    const levels: Array<string> = [
+      "",
+      "Decent",
+      "All right",
+      "Well",
+      "Good",
+      "Awesome",
+    ];
     for (let i = 1; i < 6; i++) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const text = this.two.makeText(
-        i.toString(),
-        25,
+        levels[i],
+        50,
         this.skillHeight - i * 100,
         null
       );
@@ -118,7 +125,7 @@ export default class skills extends Vue {
         skills.forEach((skill, index) => {
           setTimeout(() => {
             this.createSkill(
-              100 * (index + 1),
+              50 + 100 * (index + 1),
               this.skillHeight - skill.experience * 100,
               skill.name
             );
@@ -147,15 +154,15 @@ export default class skills extends Vue {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.two
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-      .bind("update", (frameCount) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      .bind("update", () => {
         group.scale += (1 - group.scale) * 0.03;
       })
       .play();
   }
 
-  resize() {
+  resize(): void {
     if (window.innerWidth < 900) {
       this.two.width = 900;
     }
