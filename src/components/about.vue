@@ -12,6 +12,14 @@
       obviously really care about securing this application. Kind Regards
       Penetration Tester, NCCGroup
     </div>
+    <br />
+    <div>
+      I am also on the freelance work portal Worksome, where I have received
+      some very flattering reviews <br />
+      <a href="https://use.worksome.dk/profile/13900">
+        Click here and see for yourself
+      </a>
+    </div>
   </div>
 </template>
 
