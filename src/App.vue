@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <div class="header">
+      <heads class="header-inner">
+      </heads>
+    </div>
     <about class="about"> </about>
     <div class="profile-pic">
       <flipper class="profile">
@@ -17,6 +21,9 @@
     <div class="skills">
       <skills> </skills>
     </div>
+    <div class="foots">
+      <foots class="foots-inner"> </foots>
+    </div>
   </div>
 </template>
 
@@ -28,22 +35,27 @@ import flipper from "./components/global/flipper.vue";
 import about from "./components/about.vue";
 import WorkEdu from "./components/workEdu.vue";
 import skills from "./components/skills.vue";
+import heads from "./components/heads.vue";
+import foots from "./components/foots.vue";
 
 @Component({
   components: {
+    heads,
     profilepic,
     contact,
     flipper,
     about,
     WorkEdu,
     skills,
+    foots
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue { }
 </script>
 
 <style scoped>
 #app {
+  font-family: barlow;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -53,29 +65,40 @@ export default class App extends Vue {}
     grid-template-rows: 1fr 1fr;
     margin: 10px;
   }
-  .profile-pic {
+
+  .header {
+    grid-column: 1/12;
     grid-row: 1;
+  }
+
+  .profile-pic {
+    grid-row: 2;
     grid-column: 5/9;
   }
+
   .about {
-    grid-column: 1/12;
-    grid-row: 2;
-  }
-  .workedu {
     grid-column: 1/12;
     grid-row: 3;
   }
-  .skills {
+
+  .workedu {
     grid-column: 1/12;
     grid-row: 4;
   }
+
+  .skills {
+    grid-column: 1/12;
+    grid-row: 5;
+  }
 }
+
 @media only screen and (max-width: 500px) {
   .profile-pic {
     grid-row: 1;
     grid-column: 4/10;
   }
 }
+
 @media only screen and (max-width: 400px) {
   .profile-pic {
     grid-row: 1;
@@ -88,8 +111,26 @@ export default class App extends Vue {}
     gap: 30px;
   }
 
-  .about {
-    grid-column: 2/10;
+  .header {
+    grid-column: 1/12;
+    grid-row: 1;
+    background-color: #094293;
+    color: white;
+  }
+
+  .header-inner {
+    margin-left: 9%;
+  }
+
+  .foots {
+    grid-column: 1/12;
+    grid-row: 5;
+    background-color: #788da8;
+    color: white;
+  }
+
+  .foots-inner {
+    margin-left: 9%;
   }
 
   .profile-pic {
@@ -99,6 +140,12 @@ export default class App extends Vue {}
     position: relative;
   }
 
+  .about {
+    grid-column: 2/10;
+    grid-row: 2;
+  }
+
+
   .profile {
     height: 200px;
     width: 200px;
@@ -106,12 +153,13 @@ export default class App extends Vue {}
 
   .workedu {
     grid-column: 2/10;
-    grid-row: 2;
+    grid-row: 3;
   }
+
   .skills {
     width: 100%;
     grid-column: 2/10;
-    grid-row: 3;
+    grid-row: 4;
     margin-bottom: 30px;
   }
 }

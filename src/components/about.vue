@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>About me</h2>
+    <h2>PERSONLIG PROFIL</h2>
     <p>
       I am primarily a backend developer, interested in GoLang, MongoDB,
       ElasticSearch, MySQL and information security. My proudest moment was

@@ -4,7 +4,19 @@
     <table class="styled-table">
       <tbody>
         <tr>
-          <td class="left-col">2020-Now</td>
+          <td class="left-col">2021-NOW</td>
+          <td class="right-col">
+            Mobile Industrial Robots, DevOps Engineer, Embedded test developer
+            <div class="additional-info">
+              <ul>
+                <li>CI/CD</li>
+                <li>Dotnet</li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="left-col">2020-2021</td>
           <td class="right-col">
             Jumpstory, Software developer
             <div class="additional-info">
