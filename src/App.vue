@@ -11,11 +11,11 @@
         <template v-slot:front>
           <profilepic />
         </template>
-<template v-slot:back>
-          <contact />
-        </template>
-</flipper>
-</div> -->
+    <template v-slot:back>
+              <contact />
+            </template>
+    </flipper>
+    </div> -->
     <div class="skills">
       <skills> </skills>
     </div>
@@ -60,11 +60,72 @@ export default class App extends Vue { }
 #app {
   font-family: barlow;
   display: grid;
+  color: #094293;
   grid-template-columns: repeat(12, 1fr);
 }
 
-h2 {
-  color: yellow;
+
+@media only screen and (min-width: 721px) {
+  #app {
+    gap: 30px;
+  }
+
+  .header {
+    grid-column: 1/14;
+    grid-row: 1;
+    background-color: #094293;
+    color: white;
+  }
+
+  .header-inner {
+    margin-left: 9%;
+  }
+
+  .foots {
+    grid-column: 1/14;
+    grid-row: 6;
+    background-color: #788da8;
+    color: white;
+  }
+
+  .foots-inner {
+    margin-left: 9%;
+  }
+
+  .profile-pic {
+    grid-column: 10/12;
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+
+  .about {
+    grid-column: 2/12;
+    grid-row: 2;
+  }
+
+
+  .profile {
+    height: 200px;
+    width: 200px;
+  }
+
+  .competencies {
+    grid-column: 2/12;
+    grid-row: 3;
+  }
+
+  .skills {
+    width: 100%;
+    grid-column: 2/12;
+    grid-row: 4;
+    margin-bottom: 30px;
+  }
+
+  .workedu {
+    grid-column: 2/12;
+    grid-row: 5;
+  }
 }
 
 @media only screen and (max-width: 720px) {
@@ -74,7 +135,7 @@ h2 {
   }
 
   .header {
-    grid-column: 1/12;
+    grid-column: 1/14;
     grid-row: 1;
   }
 
@@ -84,22 +145,22 @@ h2 {
   }
 
   .about {
-    grid-column: 1/12;
+    grid-column: 1/14;
     grid-row: 3;
   }
 
   .competencies {
-    grid-column: 1/12;
+    grid-column: 1/14;
     grid-row: 4;
   }
 
   .skills {
-    grid-column: 1/12;
+    grid-column: 1/14;
     grid-row: 5;
   }
 
   .workedu {
-    grid-column: 1/12;
+    grid-column: 1/14;
     grid-row: 6;
   }
 }
@@ -118,66 +179,4 @@ h2 {
   }
 }
 
-@media only screen and (min-width: 721px) {
-  #app {
-    gap: 30px;
-  }
-
-  .header {
-    grid-column: 1/12;
-    grid-row: 1;
-    background-color: #094293;
-    color: white;
-  }
-
-  .header-inner {
-    margin-left: 9%;
-  }
-
-  .foots {
-    grid-column: 1/12;
-    grid-row: 5;
-    background-color: #788da8;
-    color: white;
-  }
-
-  .foots-inner {
-    margin-left: 9%;
-  }
-
-  .profile-pic {
-    grid-column: 10/12;
-    width: 100px;
-    height: 100px;
-    position: relative;
-  }
-
-  .about {
-    grid-column: 2/10;
-    grid-row: 2;
-  }
-
-
-  .profile {
-    height: 200px;
-    width: 200px;
-  }
-
-  .competencies {
-    grid-column: 2/10;
-    grid-row: 3;
-  }
-
-  .skills {
-    width: 100%;
-    grid-column: 2/10;
-    grid-row: 4;
-    margin-bottom: 30px;
-  }
-
-  .workedu {
-    grid-column: 2/10;
-    grid-row: 5;
-  }
-}
 </style>

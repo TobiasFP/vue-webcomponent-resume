@@ -1,181 +1,88 @@
 <template>
   <div>
-    <h2>Skills</h2>
-    <div class="bigScreenSkills">
-      <p>
-        I have designed this chart from scratch with two.js. As you can quite
-        clearly see, I have rated my design skills to be a rock solid "Decent" on the
-        chart.!
-      </p>
-      <button @click="resize()">
-        <div ref="skills" id="skills"></div>
-      </button>
-    </div>
+    <h2>Kompetencer</h2>
+    <table>
+      <th class="name" >Arbejdsområder</th>
+      <th class="niveau">Niveau</th>
+      <th class="xp">Antal års erfaring</th>
+      <th class="lastused">Sidst brugt</th>
+      <tr v-for="skill in skills" v-bind:key="skill">
+        <td class="name" >
+          {{ skill.name }}
+        </td>
+        <td class="niveau">
+          {{ skill.niveau }}
+        </td>
+        <td class="xp">
+          {{ skill.experience }}
+        </td>
+        <td class="lastused">
+          {{ skill.last_utilized }}
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import Two from "twojs-ts";
+import { Component, Vue } from "vue-property-decorator";
 
 interface skill {
   name: string;
+  niveau: number;
   experience: number;
+  last_utilized: number;
 }
 
 @Component
 export default class skills extends Vue {
-  @Prop() private msg!: string;
-  skillWidth = 900;
-  skillHeight = 600;
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  two: Two;
-
-  FiverSkills: Array<skill> = [
-    { name: "Typescript", experience: 5 },
-    { name: "Communication", experience: 5 },
-    { name: "TDD", experience: 5 },
+  skills: Array<skill> = [
+    {
+      name: "test",
+      niveau: 3,
+      experience: 7,
+      last_utilized: 2024,
+    }
   ];
-  FourSkills: Array<skill> = [
-    { name: "Python", experience: 4 },
-    { name: "GoLang", experience: 4 },
-    { name: "Angular", experience: 4 },
-    { name: "Ionic", experience: 4 },
-    { name: "HTML5", experience: 4 },
-    { name: "Docker", experience: 4 },
-  ];
-  ThreeSkills: Array<skill> = [
-    { name: "PHP8", experience: 3 },
-    { name: "Mysql", experience: 3 },
-    { name: "AWS Lambda", experience: 3 },
-    { name: "AWS S3", experience: 3 },
-    { name: "Elastic Search", experience: 3 },
-    { name: "CSS3", experience: 3 },
-    { name: "Flask", experience: 3 },
-  ];
-  TwoSkills: Array<skill> = [
-    { name: "Django", experience: 2 },
-    { name: "C#", experience: 2 },
-    { name: "Kubernetes", experience: 2 },
-    { name: "AWS Cloudfront", experience: 2 },
-  ];
-  OneSkills: Array<skill> = [
-    { name: "Design", experience: 1 },
-    { name: ".NET Core", experience: 1 },
-  ];
-
   mounted(): void {
-    if (window.innerWidth < 900) {
-      this.skillWidth = window.innerWidth * 0.9;
-    }
-    const elem: HTMLDivElement = this.$refs.skills as HTMLDivElement;
-    this.two = new Two({
-      width: this.skillWidth,
-      height: this.skillHeight,
-    }).appendTo(elem);
-    this.createCoordinateSystem();
-    this.createSkills();
-    this.two.update();
+    console.log("Mounted");
   }
 
-  createCoordinateSystem(): void {
-    const background = this.two.makeRectangle(
-      900 / 2,
-      this.skillHeight / 2,
-      900,
-      this.skillHeight
-    );
-    background.linewidth = 0;
-    background.fill = "#f3f3f3";
-
-    const yAxis = this.two.makeLine(100, 0, 100, this.skillHeight);
-    yAxis.linewidth = 2;
-    const levels: Array<string> = [
-      "",
-      "Decent",
-      "All right",
-      "Well",
-      "Good",
-      "Awesome",
-    ];
-    for (let i = 1; i < 6; i++) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const text = this.two.makeText(
-        levels[i],
-        50,
-        this.skillHeight - i * 100,
-        null
-      );
-      text.size = 20;
-    }
-  }
-
-  createSkills(): void {
-    const allSkills: Array<Array<skill>> = [
-      this.FiverSkills,
-      this.FourSkills,
-      this.ThreeSkills,
-      this.TwoSkills,
-      this.OneSkills,
-    ];
-    allSkills.forEach((skills, upperIndex) => {
-      setTimeout(() => {
-        skills.forEach((skill, index) => {
-          setTimeout(() => {
-            this.createSkill(
-              50 + 100 * (index + 1),
-              this.skillHeight - skill.experience * 100,
-              skill.name
-            );
-          }, 600 * index);
-        });
-      }, 900 * upperIndex);
-    });
-  }
-
-  createSkill(x: number, y: number, skillName: string): void {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const text = this.two.makeText(skillName, 0, 0, null);
-    text.size = 20;
-    text.rotation = 0.25 * Math.PI;
-    const circle = this.two.makeCircle(0, 0, 45);
-    circle.fill = "#3880ff";
-    circle.opacity = 0.2;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const group = this.two.makeGroup(circle, text);
-    group.translation.set(x, y);
-
-    group.scale = 0;
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.two
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      .bind("update", () => {
-        group.scale += (1 - group.scale) * 0.03;
-      })
-      .play();
-  }
-
-  resize(): void {
-    if (window.innerWidth < 900) {
-      this.two.width = 900;
-    }
-    document.documentElement.requestFullscreen();
-    screen.orientation.lock("landscape");
-  }
 }
 </script>
 
-<style>
-@media only screen and (max-width: 720px) {
-  .bigScreenSkills {
-    display: none;
-  }
+<style scoped>
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  align-content: left;
+  width: 100%;
+}
+
+th { 
+  text-align: left;
+  padding-left: 5px;
+}
+td {
+    padding: 5px;
+}
+
+tr:nth-of-type(odd) {
+  background-color: "#ebeff8";
+  background: #ebeff8;
+}
+
+.name {
+  width: 44%;
+}
+
+.niveau {
+  width: 20%;
+}
+.xp {
+  width: 20%;
+}
+.lastused {
+  width: 16%;
 }
 </style>
