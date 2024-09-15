@@ -5,21 +5,22 @@
       </heads>
     </div>
     <about class="about"> </about>
-    <div class="profile-pic">
+    <competencies class="competencies"> </competencies>
+    <!-- <div class="profile-pic">
       <flipper class="profile">
         <template v-slot:front>
           <profilepic />
         </template>
-        <template v-slot:back>
+<template v-slot:back>
           <contact />
         </template>
-      </flipper>
+</flipper>
+</div> -->
+    <div class="skills">
+      <skills> </skills>
     </div>
     <div class="workedu">
       <work-edu> </work-edu>
-    </div>
-    <div class="skills">
-      <skills> </skills>
     </div>
     <div class="foots">
       <foots class="foots-inner"> </foots>
@@ -34,6 +35,7 @@ import contact from "./components/contact.vue";
 import flipper from "./components/global/flipper.vue";
 import about from "./components/about.vue";
 import WorkEdu from "./components/workEdu.vue";
+import competencies from "./components/competencies.vue";
 import skills from "./components/skills.vue";
 import heads from "./components/heads.vue";
 import foots from "./components/foots.vue";
@@ -47,17 +49,22 @@ import foots from "./components/foots.vue";
     about,
     WorkEdu,
     skills,
-    foots
+    foots,
+    competencies
   },
 })
 export default class App extends Vue { }
 </script>
 
-<style scoped>
+<style>
 #app {
   font-family: barlow;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+}
+
+h2 {
+  color: yellow;
 }
 
 @media only screen and (max-width: 720px) {
@@ -81,7 +88,7 @@ export default class App extends Vue { }
     grid-row: 3;
   }
 
-  .workedu {
+  .competencies {
     grid-column: 1/12;
     grid-row: 4;
   }
@@ -89,6 +96,11 @@ export default class App extends Vue { }
   .skills {
     grid-column: 1/12;
     grid-row: 5;
+  }
+
+  .workedu {
+    grid-column: 1/12;
+    grid-row: 6;
   }
 }
 
@@ -151,7 +163,7 @@ export default class App extends Vue { }
     width: 200px;
   }
 
-  .workedu {
+  .competencies {
     grid-column: 2/10;
     grid-row: 3;
   }
@@ -161,6 +173,11 @@ export default class App extends Vue { }
     grid-column: 2/10;
     grid-row: 4;
     margin-bottom: 30px;
+  }
+
+  .workedu {
+    grid-column: 2/10;
+    grid-row: 5;
   }
 }
 </style>
