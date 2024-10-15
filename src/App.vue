@@ -11,11 +11,11 @@
         <template v-slot:front>
           <profilepic />
         </template>
-    <template v-slot:back>
+<template v-slot:back>
               <contact />
             </template>
-    </flipper>
-    </div> -->
+</flipper>
+</div> -->
     <div class="skills">
       <skills> </skills>
     </div>
@@ -64,10 +64,10 @@ export default class App extends Vue { }
   grid-template-columns: repeat(12, 1fr);
 }
 
-
 @media only screen and (min-width: 721px) {
   #app {
     gap: 30px;
+    max-width: 1024px;
   }
 
   .header {
@@ -104,7 +104,6 @@ export default class App extends Vue { }
     grid-row: 2;
   }
 
-
   .profile {
     height: 200px;
     width: 200px;
@@ -130,38 +129,49 @@ export default class App extends Vue { }
 
 @media only screen and (max-width: 720px) {
   #app {
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
     margin: 10px;
   }
 
   .header {
     grid-column: 1/14;
     grid-row: 1;
+    background-color: #094293;
+    color: white;
+    padding: 5px;
   }
 
   .profile-pic {
-    grid-row: 2;
     grid-column: 5/9;
+    grid-row: 2;
   }
 
   .about {
     grid-column: 1/14;
-    grid-row: 3;
+    grid-row: 2;
   }
 
   .competencies {
     grid-column: 1/14;
-    grid-row: 4;
+    grid-row: 3;
   }
 
   .skills {
     grid-column: 1/14;
-    grid-row: 5;
+    grid-row: 4;
   }
 
   .workedu {
     grid-column: 1/14;
+    grid-row: 5;
+  }
+
+  .foots {
+    grid-column: 1/14;
     grid-row: 6;
+    background-color: #788da8;
+    color: white;
+    padding: 10px;
   }
 }
 
@@ -178,5 +188,4 @@ export default class App extends Vue { }
     grid-column: 2/12;
   }
 }
-
 </style>

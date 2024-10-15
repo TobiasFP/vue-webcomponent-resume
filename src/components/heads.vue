@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Tobias Waage Feldballe</h1>
-    <h2> DevOps and Full stack Engineer</h2>
+    <h2> DevOps & Full stack Engineer</h2>
     <p> Erfaring siden 2015 </p>
   </div>
 </template>

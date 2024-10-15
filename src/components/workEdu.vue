@@ -56,11 +56,11 @@
               Ved Jumpstory hjalp jeg med cloud native udvikling af især AWS
               Lambda funktioner til media metadata enrichment. Herudover GitOps
               og data visualisering af især performance relaterede metrics.
-
+              Herudover stod jeg for integrering af OAuth / OpenID connect med
+              Laravel som backend og Vue3 som frontend.
               <h3>Kompetencer brugt</h3>
-
-              ElasticSearch, Grafana, Python3, MySQL, AWS Lambda, Laravel/PHP8,
-              Vue TS, Machine learning
+              ElasticSearch, Grafana, Python3, Docker, Kubernetes, MySQL, AWS
+              Lambda, Laravel/PHP8, Vue3 TS, Machine learning
             </div>
           </td>
         </tr>
@@ -70,6 +70,8 @@
             <h2>Laban</h2>
             <h4>Software developer</h4>
             <div class="additional-info">
+              Ved Laban udviklede jeg et simpelt værktøj til visualisering af
+              streamet data.
               <ul>
                 <li>Python</li>
                 <li>Javascript</li>
@@ -84,9 +86,9 @@
             <h2>Tiki-media</h2>
             <h4>Fullstack developer og project lead</h4>
             <div class="additional-info">
-              Her udviklede jeg et interaktivt spil, vha. En backend i GoLang,
-              samt en frontend i Angular og WebGL. WebGL, Ionic Angular, Golang,
-              Cyber security, Web assembly,
+              Ved Tiki Media udviklede jeg et interaktivt spil, vha. En backend
+              i GoLang, i GoLang, samt en frontend i Angular og WebGL. Herudover
+              opsat fuld CI/CD pipeline vha. docker, github actions
 
               <h3>Kompetencer brugt</h3>
               WebGL, Ionic Angular, Golang, Cyber security, Web assembly,
@@ -101,7 +103,10 @@
             <div class="additional-info">
               Cyber sikring af både backend, app og webapp, samt data
               visualisering, arkitektudvikling og monitorering vha. Produkter
-              fra Grafana labs
+              fra Grafana labs. Herudover containerisede jeg hele deres software
+              stack og gjorde det klar til et eventuelt CI/CD setup. Jeg satte
+              også OAuth / OpenID connect infrastruktur op samt konsumerede via
+              PHP backend, Angular frontend samt på iPhone og Android apps.
               <h3>Kompetencer brugt</h3>
               Cyber security, MongoDB, Grafana, PHP, Angular, docker, OAuth,
               OpenID Connect,
@@ -109,18 +114,19 @@
           </td>
         </tr>
         <tr>
-          <td class="left-col">2018-Now</td>
+          <td class="left-col">2018-2023</td>
           <td class="right-col">
             <h2>Kluboplevelser</h2>
             <h4>CTO, Developer</h4>
             <div class="additional-info">
-              <ul>
-                <li>Python</li>
-                <li>Django</li>
-                <li>MySQL</li>
-                <li>Javascript</li>
-                <li>Docker/Kubernetes</li>
-              </ul>
+              Ved Klub oplevelser stod jeg for at udvikle et system til
+              indsamling af midler i klubregi. Systemet blev udviklet fra
+              bunden, i en Python / Django backend, samt en Angular frontend. Al
+              betaling foregik og blev processeret vha. en selvudviklet
+              MobilePay integration.
+              <h3>Kompetencer brugt</h3>
+              Python, Django, Ionic / Angular / Typescript, OAuth / OpenID
+              connect
             </div>
           </td>
         </tr>
