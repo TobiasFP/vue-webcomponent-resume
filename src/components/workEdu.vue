@@ -4,26 +4,26 @@
     <table class="styled-table">
       <tbody>
         <tr>
-          <td class="left-col">2023-Nu</td>
+          <td class="left-col">2023-2024</td>
           <td class="right-col">
             <h2>Mobile Industrial Robots</h2>
             <h4>DevOps Engineer</h4>
             <div class="additional-info">
-              Jeg er tech-lead, arkitekt og udvikler af en yderst skalerbar
-              løsning til deployment af Robot simulatorer i et on-prem docker
-              swarm vha. Dotnet. Systemet benyttes primært til CI/CD live
-              testing af robot flåder og robot simulatorer. Systemet står for
-              resourcestyring, CI/CD pipelines integration, YAML, JSONNET og
-              JSON parsing, samt software release management håndtering.
-              Herudover har jeg benyttet min erfaring med rådgivning, sparring,
-              opbygning og udvikling af teams. Da systemet primært bruges til
-              test men sekundært bruges til undervisning i flåde og robot
-              systemerne, har det givet mig mulighed for at bnytte mine skills
-              indenfor oplæring og kompetenceudvikling af nye team medlemmer.
+              arkitekt og udvikler af en yderst skalerbar løsning til deployment
+              af Robot simulatorer i et on-prem docker swarm bygget vha. Dotnet.
+              Systemet benyttes primært til CI/CD live testing af robot flåder
+              og robot simulatorer. Systemet står for resourcestyring, CI/CD
+              pipelines integration, YAML, JSONNET og JSON parsing, samt
+              software release management håndtering. Herudover har jeg benyttet
+              min erfaring med rådgivning, sparring, opbygning og udvikling af
+              teams. Da systemet primært bruges til test men sekundært bruges
+              til undervisning i flåde og robot systemerne, har det givet mig
+              mulighed for at bnytte mine skills indenfor oplæring og
+              kompetenceudvikling af nye team medlemmer.
 
               <h3>Kompetencer brugt</h3>
               Docker Swarm services development, Docker swarm maintenance,
-              dotnet Artifactory Drone (CI/CD), Github/Gitea actions,
+              dotnet, Artifactory, Drone (CI/CD), Github/Gitea actions,
               Vue/Typescript, Automated Software release management design
             </div>
           </td>
